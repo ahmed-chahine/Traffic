@@ -1,0 +1,68 @@
+int blue=2;
+int yellow=3;
+int red=4;
+
+int sw=5;
+int buttonstate;
+int state=0;
+int old=0;
+void setup() {
+pinMode(blue,OUTPUT); //led set as output
+pinMode(yellow,OUTPUT);
+pinMode(red,OUTPUT);
+pinMode(sw,INPUT); //button set as input
+  
+  
+
+}
+
+void loop() {
+  buttonstate=digitalRead(sw);
+  if(buttonstate==1)
+  {
+  
+   buttonstate=digitalRead(sw);
+    if(buttonstate==0)
+    {
+    state=old+1;
+
+    
+  }   
+   switch (state)
+   {
+  
+  case 1 :  //if state is =1
+  digitalWrite(blue,HIGH);
+     digitalWrite(yellow,LOW);
+    digitalWrite(red,LOW);
+    old = state; //set the old state
+  break;
+  case 2: // if state =2
+  digitalWrite(blue,LOW);
+     digitalWrite(yellow,HIGH);
+    digitalWrite(red,LOW);
+    old = state; 
+    break;
+    case 3: // if state =3
+    digitalWrite(blue,LOW);
+     digitalWrite(yellow,LOW);
+    digitalWrite(red,HIGH);
+    old = state; 
+    break;
+    default: //if is not 1,2,3
+     digitalWrite(red,LOW);
+     digitalWrite(blue,LOW);
+     digitalWrite(yellow,LOW);
+    
+    old = 0;
+    break;
+    
+   
+   }
+  }
+}
+
+  
+  
+
+    

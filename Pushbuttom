@@ -3,7 +3,7 @@ int yellow=6;
 int red=4;
 
 int sw=5;
-int buttonstate;
+int buttomstate;
 int state=0;
 int old=0;
 void setup() {
@@ -17,12 +17,12 @@ pinMode(sw,INPUT); //button set as input
 }
 
 void loop() {
-  buttonstate=digitalRead(sw);
-  if(buttonstate==1)
+  buttomstate=digitalRead(sw);
+  if(buttomstate==1)
   {
   
    buttonstate=digitalRead(sw);
-    if(buttonstate==0)
+    if(buttomstate==0)
     {
     state=old+1;
 

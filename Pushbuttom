@@ -38,14 +38,14 @@ void loop() {
     old = state; //set the old state
   break;
   case 2: // if state =2
-  digitalWrite(blue,LOW);
+  digitalWrite(blue,HIGH);
      digitalWrite(yellow,HIGH);
     digitalWrite(red,LOW);
     old = state; 
     break;
     case 3: // if state =3
-    digitalWrite(blue,LOW);
-     digitalWrite(yellow,LOW);
+    digitalWrite(blue,HIGH);
+     digitalWrite(yellow,HIGH);
     digitalWrite(red,HIGH);
     old = state; 
     break;

@@ -2,7 +2,7 @@ int green=5;
 int yellow=6;
 int red=4;
 
-int sw=5;
+int sw=3;
 int buttomstate;
 int state=0;
 int old=0;

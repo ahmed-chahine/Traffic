@@ -25,16 +25,17 @@ void loop()
       val1=analogRead(a3);
       val1=val1/4;
       analogWrite(red,val1);
-      delay(100);
+      delay(3000);
     } 
     else if (i == 2)
     {
         digitalWrite(red,LOW);
        digitalWrite(yellow,HIGH);
+      digitalWrite(blue,LOW);
       val1= analogRead(a3);
       val1=val1/4;
       analogWrite(yellow,val1);
-      delay(200);
+      delay(2000);
     } 
     else if (i == 3) 
     {
@@ -44,12 +45,10 @@ void loop()
       val1=analogRead(a3);
       val1=val1/4;
       analogWrite(blue,val1);
-      delay(300);
+      delay(3000);
       i=0;
     }
-    else if (i==4)
-      digitalWrite(yellow,LOW);
-      digitalWrite(red,LOW);
+  
      digitalWrite(blue,LOW);
     
     }

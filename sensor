@@ -1,0 +1,56 @@
+int val1= 0-1023;
+int red=10;
+int yellow =9;
+int blue=8;
+int a3= A0;
+int sw = 2;
+int i = 0;
+void setup() {
+  pinMode(red,OUTPUT);
+  pinMode(yellow,OUTPUT);
+  pinMode(blue,OUTPUT);
+  pinMode(a3, INPUT);
+  pinMode(sw, INPUT);
+
+}
+
+void loop()
+{
+  val1= digitalRead(sw);
+  if (val1==HIGH)
+  {
+    i++;
+    if (i == 1) {
+      digitalWrite(red,HIGH);
+      val1=analogRead(a3);
+      val1=val1/4;
+      analogWrite(red,val1);
+      delay(100);
+    } 
+    else if (i == 2)
+    {
+        digitalWrite(red,LOW);
+       digitalWrite(yellow,HIGH);
+      val1= analogRead(a3);
+      val1=val1/4;
+      analogWrite(yellow,val1);
+      delay(200);
+    } 
+    else if (i == 3) 
+    {
+      digitalWrite(yellow,LOW);
+       digitalWrite(red,LOW);
+       digitalWrite(blue,HIGH);
+      val1=analogRead(a3);
+      val1=val1/4;
+      analogWrite(blue,val1);
+      delay(300);
+      i=0;
+    }
+    else if (i==4)
+      digitalWrite(yellow,LOW);
+      digitalWrite(red,LOW);
+     digitalWrite(blue,LOW);
+    
+    }
+  }

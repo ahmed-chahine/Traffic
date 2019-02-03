@@ -1,0 +1,36 @@
+int led = 11;    
+int sw1 = 3;
+int sw2 = 2;
+int sw3 = 1;
+int sw4 = 4;
+int val1;
+int val2;
+int val3;
+int val4;
+void setup() {
+  pinMode(led, OUTPUT);
+  pinMode(sw1, INPUT);
+  pinMode(sw2, INPUT);
+  pinMode(sw3, INPUT);
+  pinMode(sw4, INPUT);
+}
+void loop() {
+  val1 = digitalRead(sw1);
+  val2 = digitalRead(sw2);
+  val3= digitalRead(sw3);
+  val4= digitalRead(sw4);
+
+  if (val2 == HIGH and val4 == HIGH) {
+    analogWrite(led, 255);
+  } else if (val1 == HIGH) {
+    analogWrite(led, 250);
+  } else if (val2 == HIGH) {
+    analogWrite(led, 150);
+
+  } else if (val3 == HIGH) {
+    analogWrite(led, 100);
+  }
+  else if (val4== HIGH) {
+    analogWrite(led, 0);
+  }
+}

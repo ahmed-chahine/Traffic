@@ -1,0 +1,34 @@
+int led=6;
+int sw1=5;
+int sw2=3;
+int val1;
+int val2;
+int X=0;
+void setup() {
+ pinMode(led,OUTPUT);
+ pinMode(sw1,INPUT);
+ pinMode(sw2,INPUT);
+}
+
+void loop() {
+ val1=digitalRead(sw1);
+ val2=digitalRead(sw2);
+X =constrain(X,0,255);
+ if(val1==0 && val2==1)
+ {
+  X--;
+ }
+ if(val2==0 && val1==1)
+ {
+  X++;
+ }
+ if (val1==HIGH)
+ {
+analogWrite(led,X);
+ }
+ else if (val2==HIGH)
+ {
+  analogWrite(led,X);
+ }
+ 
+}

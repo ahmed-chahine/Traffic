@@ -1,0 +1,42 @@
+int led =3;
+int Buzz=5;
+
+void setup() {
+   pinMode(led,OUTPUT);
+  pinMode(Buzz,OUTPUT);
+
+}
+
+void loop() {
+
+  {
+    
+    for(int I=0;I<10;I++){
+      
+       digitalWrite(led,LOW);
+
+         if(I==4){
+        
+         digitalWrite(Buzz,HIGH);
+          digitalWrite(led,HIGH);
+delay (2000);
+     digitalWrite(Buzz,LOW);
+     digitalWrite(led,LOW);
+        delay(1000);
+         }
+       else if(I==7){
+        
+         digitalWrite(Buzz,HIGH);
+          digitalWrite(led,HIGH);
+         delay(2000);
+          digitalWrite(Buzz,LOW);
+     digitalWrite(led,LOW);
+        delay(1000);
+        
+           }
+    
+        delay(1000);
+  }
+   
+    }
+}

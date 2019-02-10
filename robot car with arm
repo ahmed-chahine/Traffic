@@ -537,6 +537,7 @@ if (swcount==4)
    }
 if(swcount==5)
 {
+void five();
   (position=90,position>0,position n--);
    servo3.write(30);
    delay (150);

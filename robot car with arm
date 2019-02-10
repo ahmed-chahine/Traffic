@@ -1,0 +1,561 @@
+int m1=1;             
+int m2=2;              
+int m3=3;      
+int m4=4;       
+int m5=5;        
+int m6=6;          
+int m7=7;         
+int m8=8;        
+int sens1=16;
+int sens2=17;
+int sens3=18;
+int s1;   int s2; int s3;
+char a=9;
+char b=10; 
+char c=11;
+char d=12; 
+char e=13;
+char f=14;
+char g=15;
+int I=0;
+int sw1=19;
+int push1=20;
+int push2=21;
+int push3= 22;
+int push4=23;
+int trig=24;
+int Eecho=25;
+int wled1=26;
+int wled2=27;
+int red1=28;
+int red2=29;
+int green=30;
+int orange=31;
+int orange2=32;
+int swcount=0;
+int position=0;
+int p=0; int n=0;   int m=0;
+int val1;   int val2;
+int val3;
+int volume=33;
+int servo1=34; 
+int servo2=35; 
+int servo3=36;
+long duration; 
+long distance;
+
+
+void setup() {
+  pinMode(a,OUTPUT);  
+ pinMode(b,OUTPUT); 
+ pinMode(c,OUTPUT);
+ pinMode(d,OUTPUT); 
+ pinMode(e,OUTPUT); 
+ pinMode(f,OUTPUT);
+ pinMode(g,OUTPUT);
+ pinMode(m1,OUTPUT);
+  pinMode(m2,OUTPUT);
+  pinMode(m3,OUTPUT);
+  pinMode(m4,OUTPUT);
+   pinMode(m5,OUTPUT);
+  pinMode(m6,OUTPUT);
+  pinMode(m7,OUTPUT);
+  pinMode(m8,OUTPUT);
+pinMode(volume,INPUT);
+pinMode(sw1,INPUT);
+pinMode(push1,INPUT);
+pinMode(push2,INPUT);
+pinMode(push3,INPUT);
+pinMode(push4,INPUT);
+pinMode(wled1,OUTPUT);
+pinMode(wled2,OUTPUT);
+pinMode(red1,OUTPUT);
+pinMode(red2,OUTPUT);
+pinMode(orange,OUTPUT);
+pinMode(orange2,OUTPUT);
+pinMode(green,OUTPUT);
+pinMode(sens1,INPUT);
+pinMode(sens2,INPUT);
+pinMode(sens3,INPUT);
+pinMode(trig,OUTPUT);
+pinMode(Eecho,INPUT);
+pinMode(volume,INPUT);
+
+void one(){  
+digitalWrite(a,0);  
+digitalWrite(b,1);  
+digitalWrite(c,1);  
+digitalWrite(d,0);  
+digitalWrite(e,0);  
+digitalWrite(f,0);  
+digitalWrite(g,0);
+}
+void two(){  
+digitalWrite(a,1);  
+digitalWrite(b,1);  
+digitalWrite(c,0);  
+digitalWrite(d,1);  
+digitalWrite(e,1);  
+digitalWrite(f,0);  
+digitalWrite(g,1);
+}
+void three(){  
+digitalWrite(a,1);  
+digitalWrite(b,1);  
+digitalWrite(c,1);  
+digitalWrite(d,1);  
+digitalWrite(e,0);  
+digitalWrite(f,0);  
+digitalWrite(g,1);
+}
+void four(){  
+digitalWrite(a,0);  
+digitalWrite(b,1);  
+digitalWrite(c,1);  
+digitalWrite(d,0);  
+digitalWrite(e,0);  
+digitalWrite(f,1);  
+digitalWrite(g,1);
+}
+void five(){  
+digitalWrite(a,1);  
+digitalWrite(b,0);  
+digitalWrite(c,1);  
+digitalWrite(d,1);  
+digitalWrite(e,0);  
+digitalWrite(f,1);  
+digitalWrite(g,1);
+}
+void six(){  
+digitalWrite(a,1);  
+digitalWrite(b,0);  
+digitalWrite(c,1);  
+digitalWrite(d,1);  
+digitalWrite(e,1);  
+digitalWrite(f,1);  
+digitalWrite(g,1);
+}
+void seven(){  
+digitalWrite(a,1);  
+digitalWrite(b,1);  
+digitalWrite(c,1);  
+digitalWrite(d,0);  
+digitalWrite(e,0);  
+digitalWrite(f,0);  
+digitalWrite(g,0);  
+}
+void eghit(){  
+digitalWrite(a,1); 
+digitalWrite(b,1);  
+digitalWrite(c,1);  
+digitalWrite(d,1);  
+digitalWrite(e,1);  
+digitalWrite(f,1);  
+digitalWrite(g,1);
+}
+void nine(){  
+digitalWrite(a,1);  
+digitalWrite(b,1);  
+digitalWrite(c,1);  
+digitalWrite(d,1);  
+digitalWrite(e,0);  
+digitalWrite(f,1);  
+digitalWrite(g,1);
+}
+
+void  stop display (){
+  digitalWrite(a,0);  
+digitalWrite(b,0);  
+digitalWrite(c,0);  
+digitalWrite(d,0);  
+digitalWrite(e,0);  
+digitalWrite(f,0);  
+digitalWrite(g,0);
+}
+void up(){
+digitalWrite(m1,HIGH);
+digitalWrite(m2,LOW);
+digitalWrite(m3,HIGH);
+digitalWrite(m4,LOW);
+digitalWrite(m5,HIGH);
+digitalWrite(m6,LOW);
+digitalWrite(m7,HIGH);
+digitalWrite(m8,LOW);
+}
+void left(){
+  digitalWrite(m1,HIGH);
+digitalWrite(m2,LOW);
+digitalWrite(m3,LOW);
+digitalWrite(m4,HIGH);
+ digitalWrite(m5,HIGH);
+digitalWrite(m6,LOW);
+digitalWrite(m7,LOW);
+digitalWrite(m8,HIGH);
+}
+void right(){
+   digitalWrite(m1,LOW);
+digitalWrite(m2,HIGH);
+digitalWrite(m3,HIGH);
+digitalWrite(m4,LOW);
+digitalWrite(m5,LOW);
+digitalWrite(m6,HIGH);
+digitalWrite(m7,HIGH);
+digitalWrite(m8,LOW);
+}
+void back()
+{
+  digitalWrite(m1,LOW);
+digitalWrite(m2,HIGH);
+digitalWrite(m3,LOW);
+digitalWrite(m4,HIGH);
+digitalWrite(m5,LOW);
+digitalWrite(m6,HIGH);
+digitalWrite(m7,LOW);
+digitalWrite(m8,HIGH);
+}
+void stop car ()
+{
+  digitalWrite(m1,LOW);
+digitalWrite(m2,LOW);
+digitalWrite(m3,LOW);
+digitalWrite(m4,LOW);
+digitalWrite(m5,LOW);
+digitalWrite(m6,LOW);
+digitalWrite(m7,LOW);
+digitalWrite(m8,LOW);
+}
+
+serial.begin(9600);
+}
+void loop()
+{
+ val=digitalRead(sw);
+ s1=digitalRead(sens1);
+ s2=digitalRead(sens2);
+ s3=digitalRead(sens3);
+ if (sw==HIGH)
+ I++;
+ 
+ if (swcount==1)
+ {
+  void one();
+  if (s1==0&&s2==0&&s3==0)
+  {
+    up();
+    digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,HIGH);
+  }
+  else if (s1==0&&s2==0&&s3==1)
+  {
+  up();
+    digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,HIGH);
+  }
+  else if (s1==0&&s2==1&&s3==0)
+  {
+    right();
+      digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,HIGH);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,LOW);
+  }
+  else if (s1==0&&s2==0&&s3==1)
+  {
+    right ();
+     digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,HIGH);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,LOW);
+  }
+  else if (s1==1&&s2==0&&s3==0)
+  {
+    left ();
+     digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,HIGH);
+    digitalWrite(green,LOW);
+  }
+  else if (s1==1&&s2==0&&s3==1)
+  {
+    left();
+      digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,HIGH);
+    digitalWrite(green,LOW);
+  }
+  else if (s1==1&&s2==1&&s3==0)
+  {
+  up();
+    digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,HIGH);
+  }
+  else if (s1==1&&s2==1&&s3==1)
+  {
+    up();
+      digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,HIGH);
+  }
+if (swcount==2)
+void two();
+val=digitalRead(sw);
+ s1=digitalRead(sens1);
+ s2=digitalRead(sens2);
+ s3=digitalRead(sens3);
+ digitalRead(push1);
+  digitalRead(push2);
+   digitalRead(push3);
+    digitalRead(push4);
+
+ digitalWrite(trig,LOW);
+ delay microSecond(2);
+ digitalWrite(trig,HIGH);
+ delay microSecond(10);
+ do
+ {
+  for (position=90,position<180,position,n++);
+   for (position=180,position<0,position,n--);
+    for (position=0,position<90,position,n++);
+  distance= 340,29*100/1000000
+  serial.println(distance);
+  while ( digitalRead(trig)==HIGH);
+  duration= pulseIn(Eecho,HIGH);
+  if (s1==0&&s2==0&&s3==0)
+  {
+    up();
+    digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,HIGH);
+  }
+  else if (s1==0&&s2==0&&s3==1)
+  {
+  up();
+    digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,HIGH);
+  }
+  else if (s1==0&&s2==1&&s3==0)
+  {
+    right();
+      digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,HIGH);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,LOW);
+  }
+  else if (s1==0&&s2==0&&s3==1)
+  {
+    right ();
+     digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,HIGH);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,LOW);
+  }
+  else if (s1==1&&s2==0&&s3==0)
+  {
+    left ();
+     digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,HIGH);
+    digitalWrite(green,LOW);
+  }
+  else if (s1==1&&s2==0&&s3==1)
+  {
+    left();
+      digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,HIGH);
+    digitalWrite(green,LOW);
+  }
+  else if (s1==1&&s2==1&&s3==0)
+  {
+  up();
+    digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,HIGH);
+  }
+  else if (s1==1&&s2==1&&s3==1)
+  {
+    up();
+      digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,HIGH);
+  }
+
+if (swcount==3)
+void three ();
+if(digitalRead(push1==HIGH)) 
+{
+  up();
+  digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,HIGH);
+  }
+else if(digitalRead(push2==HIGH)  ){
+  back();
+  digitalWrite(wled1,HIGH);
+    digitalWrite(wled2,HIGH);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,LOW);
+  }
+ else if(digitalRead(push3==HIGH)){
+ right ();
+ digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,HIGH);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,LOW);
+  }
+  
+
+else if(digitalRead(push4==HIGH) ){
+ left();
+       digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,LOW);
+    digitalWrite(red2,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,HIGH);
+    digitalWrite(green,LOW);
+  }
+  else if (push1==LOW && push2==LOW && push3==LOW && push4==LOW )
+          {
+  void stop car ();
+    digitalWrite(wled1,LOW);
+    digitalWrite(wled2,LOW);
+    digitalWrite(red1,HIGH);
+    digitalWrite(red2,HIGH);
+    digitalWrite(orange,LOW);
+    digitalWrite(orange2,LOW);
+    digitalWrite(green,LOW);
+          }
+if (swcount==4)
+ digitalRead(push1);
+ digitalRead(push2);
+ digitalRead(push3);
+ digitalRead(push4);
+ val=digitalRead(sw);
+
+ if (digitalRead(push1)==HIGH)
+    I++;
+   {
+    servo2.write(HIGH);
+    (position=0,position<180,position,n++);
+    int I=0;
+   }
+   else if 
+   {
+    if (digitalRead(push2)==HIGH)
+    I++;
+   {
+    servo2.write(HIGH);
+    (position=180,position>0,position n--);
+  int I=0;
+   }
+   if (digitalRead(push3)==HIGH)
+    I++;
+   {
+    servo3.write(HIGH);
+    (position=90,position<180,position n++);
+    int I=0;
+    
+   }
+   if (digitalRead(push4=HIGH)
+    I++;
+   {
+    servo3.write(HIGH);
+    (position=90,position>0,position n--);
+    int I=0;
+    
+   }
+if(swcount==5)
+{
+  (position=90,position>0,position n--);
+   servo3.write(30);
+   delay (150);
+   (position=0,position>180,position n++);
+   servo3.write(90);
+   delay (150);
+   (position=90,position>0,position n--);
+   servo2.write(30);
+   delay (150);
+   (position=0,position>180,position n++);
+   servo2.write(90);
+   delay (150);
+   (position=90,position>0,position n--);
+   servo1.write(30);
+   delay (150);
+   (position=0,position>180,position n++);
+   servo1.write(90);
+   delay (150);
+   
+}
+ }
+}
